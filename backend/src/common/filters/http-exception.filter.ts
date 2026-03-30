@@ -6,6 +6,7 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
+import { winstonLogger } from '../logger/winston.logger';
 
 @Catch()
 export class HttpExceptionFilter implements ExceptionFilter {
@@ -19,6 +20,14 @@ export class HttpExceptionFilter implements ExceptionFilter {
         ? exception.getStatus()
         : HttpStatus.INTERNAL_SERVER_ERROR;
     const message = this.extractMessage(exception);
+
+    if (statusCode >= 500) {
+      winstonLogger.error('Unhandled exception', {
+        path: request.url,
+        method: request.method,
+        message,
+      });
+    }
 
     response.status(statusCode).json({
       message,
