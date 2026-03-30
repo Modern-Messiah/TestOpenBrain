@@ -6,10 +6,13 @@ RUN corepack enable && corepack prepare pnpm@10.33.0 --activate
 
 COPY backend/package.json ./package.json
 COPY backend/prisma ./prisma
+COPY backend/tsconfig.json ./tsconfig.json
+COPY backend/tsconfig.build.json ./tsconfig.build.json
+COPY backend/nest-cli.json ./nest-cli.json
 
 RUN pnpm install --frozen-lockfile=false --prod=false
 
-COPY backend ./
+COPY backend/src ./src
 
 RUN pnpm prisma:generate
 RUN pnpm build
