@@ -7,10 +7,18 @@ export class PrismaService
   implements OnModuleInit, OnModuleDestroy
 {
   async onModuleInit(): Promise<void> {
+    if (process.env.SKIP_DB_CONNECT === 'true') {
+      return;
+    }
+
     await this.$connect();
   }
 
   async onModuleDestroy(): Promise<void> {
+    if (process.env.SKIP_DB_CONNECT === 'true') {
+      return;
+    }
+
     await this.$disconnect();
   }
 }
