@@ -111,12 +111,12 @@ npx pnpm --filter frontend dev
 
 - Авторизация и роли не включены в MVP.
 - `AI summary` намеренно не реализован.
-- Статусы хранятся enum-ом:
-  - `NEW`
-  - `IN_PROGRESS`
-  - `WAITING_FOR_RESPONSE`
-  - `COMPLETED`
-  - `REJECTED`
+- Статусы хранятся enum-ом (в интерфейсе отображаются по-русски):
+  - `NEW` — `Новая`
+  - `IN_PROGRESS` — `В работе`
+  - `WAITING_FOR_RESPONSE` — `Ожидает ответа`
+  - `COMPLETED` — `Завершена`
+  - `REJECTED` — `Отклонена`
 
 ## Что не успел сделать
 

@@ -3,15 +3,15 @@ import { type RequestStatus } from '@/types/request'
 export function getStatusLabel(status: RequestStatus) {
   switch (status) {
     case 'NEW':
-      return 'New'
+      return 'Новая'
     case 'IN_PROGRESS':
-      return 'In Progress'
+      return 'В работе'
     case 'WAITING_FOR_RESPONSE':
-      return 'Waiting for Response'
+      return 'Ожидает ответа'
     case 'COMPLETED':
-      return 'Completed'
+      return 'Завершена'
     case 'REJECTED':
-      return 'Rejected'
+      return 'Отклонена'
   }
 }
 
