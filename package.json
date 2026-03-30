@@ -1,0 +1,20 @@
+{
+  "name": "test-openbrain",
+  "private": true,
+  "packageManager": "pnpm@10.33.0",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev:backend": "pnpm --filter backend start:dev",
+    "dev:frontend": "pnpm --filter frontend dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "test": "pnpm --filter backend test",
+    "test:e2e": "pnpm --filter backend test:e2e"
+  },
+  "devDependencies": {
+    "pnpm": "^10.33.0"
+  }
+}
