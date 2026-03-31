@@ -9,7 +9,7 @@ RUN pnpm install --frozen-lockfile=false
 
 COPY frontend ./
 
-ARG VITE_API_BASE_URL=http://localhost:3000/api
+ARG VITE_API_BASE_URL=/api
 ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
 
 RUN pnpm build
